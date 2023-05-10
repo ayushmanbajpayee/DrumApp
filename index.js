@@ -1,0 +1,58 @@
+// alert("Hello");
+for(var i=0;i<document.querySelectorAll(".drum").length;i++   ){
+document.querySelectorAll(".drum")[i].addEventListener("click", handclick);
+function handclick(){
+    var buttonInnerHTML=this.innerHTML; 
+    buttonAnimantion(buttonInnerHTML);
+    makesound(buttonInnerHTML);
+}
+}
+document.addEventListener("keydown",(event) => {   
+    makesound(event.key);
+    buttonAnimantion(event.key);});
+
+    function buttonAnimantion(currentKey){
+        var activebutton=document.querySelectorAll("."+currentKey);
+           activebutton[0].classList.add("pressed");
+           setTimeout(function(){
+               activebutton[0].classList.remove("pressed");
+           }
+              ,100);
+       }
+    function makesound(key){
+    switch (key) {
+        case "w":
+            var audio=new Audio("sounds/tom-1.mp3");
+            audio.play();
+            break;
+        case "a":
+            var audio=new Audio("sounds/tom-2.mp3");
+            audio.play();
+            break;
+        case "s":
+            var audio=new Audio("sounds/tom-3.mp3");
+            audio.play();
+            break;
+        case "d":
+            var audio=new Audio("sounds/tom-4.mp3");
+            audio.play();
+            break;
+        case "j":
+            var audio=new Audio("sounds/snare.mp3");
+            audio.play();
+            break;  
+        case "k":
+            var audio=new Audio("sounds/crash.mp3");
+            audio.play();
+            break;
+        case "l":
+            var audio=new Audio("sounds/kick-bass.mp3");
+            audio.play();
+            break;
+    }
+    }
+
+                 
+
+// var audio=new Audio("sounds/tom-1.mp3");
+//     audio.play();
